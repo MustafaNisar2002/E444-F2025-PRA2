@@ -1,12 +1,35 @@
 {% extends "base.html" %}
 
-{% block title %}Hello {{ name }}!{% endblock %}
+{% block title %}Hello {{ name or "Stranger" }}!{% endblock %}
 
 {% block page_content %}
   <div class="page-header mb-4">
-    <h1>Hello {{ name }}!</h1>
-    <p class="text-secondary mb-0">
-      Local date & time: {{ moment(current_time).format('LLLL') }}
-    </p>
+    <h1>Hello {{ name or "Stranger" }}!</h1>
+    {% if email %}
+      <p class="text-muted mb-0">{{ email }}</p>
+    {% endif %}
+    <p class="text-secondary mt-2">Local date & time: {{ moment(current_time).format('LLLL') }}</p>
   </div>
+
+  <form method="POST" novalidate>
+    {{ form.hidden_tag() }}
+    <div class="mb-3">
+      {{ form.name.label(class="form-label") }}
+      {{ form.name(class="form-control", placeholder="Jane Doe") }}
+      {% for err in form.name.errors %}
+        <div class="text-danger small">{{ err }}</div>
+      {% endfor %}
+    </div>
+
+    <div class="mb-3">
+      {{ form.email.label(class="form-label") }}
+      {{ form.email(class="form-control", placeholder="netid@mail.utoronto.ca") }}
+      <div class="form-text">Must be a UofT address (contains “utoronto”).</div>
+      {% for err in form.email.errors %}
+        <div class="text-danger small">{{ err }}</div>
+      {% endfor %}
+    </div>
+
+    {{ form.submit(class="btn btn-primary") }}
+  </form>
 {% endblock %}
