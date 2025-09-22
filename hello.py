@@ -6,5 +6,9 @@ app = Flask(__name__)            # application instance
 def index():
     return '<h1>Hello World!</h1>'
 
+@app.route('/user/<name>')
+def user(name):
+    return '<h1>Hello, %s!</h1>' % name
+
 if __name__ == '__main__':       # dev server startup
     app.run(debug=True)
