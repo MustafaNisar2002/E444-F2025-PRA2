@@ -1,18 +1,17 @@
 {% extends "base.html" %}
-
-{% block title %}Hello {{ name or "Stranger" }}!{% endblock %}
+{% block title %}Hello {{ name or "Stranger" }}! Welcome to PRA2 Docker!{% endblock %}
 
 {% block page_content %}
   <div class="page-header mb-4">
-    <h1>Hello {{ name or "Stranger" }}!</h1>
+    <h1>Hello {{ name or "Stranger" }}! Welcome to PRA2 Docker!</h1>
     {% if email %}
       <p class="text-muted mb-0">{{ email }}</p>
     {% endif %}
-    <p class="text-secondary mt-2">Local date & time: {{ moment(current_time).format('LLLL') }}</p>
   </div>
 
   <form method="POST" novalidate>
-    {{ form.hidden_tag() }}
+    {{ form.hidden_tag() }}  {# includes CSRF token #}
+
     <div class="mb-3">
       {{ form.name.label(class="form-label") }}
       {{ form.name(class="form-control", placeholder="Jane Doe") }}
