@@ -5,7 +5,6 @@ from flask_moment import Moment
 from forms import NameEmailForm
 
 app = Flask(__name__)
-# IMPORTANT: change this in production; keeping it here for the PRA demo.
 app.config["SECRET_KEY"] = "change-this-in-production"
 
 moment = Moment(app)
