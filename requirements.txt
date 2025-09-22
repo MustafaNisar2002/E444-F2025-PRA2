@@ -1,0 +1,6 @@
+cat > requirements.txt << 'EOF'
+Flask
+Flask-WTF
+email-validator
+Flask-Moment
+EOF
