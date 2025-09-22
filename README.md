@@ -1,2 +1,8 @@
-# E444-F2025-PRA2
-ECE444 PRA2
+# Flasky (Clone)
+
+**Maintainer:** Mustafa Nisar
+
+This repository is a **clone** of [miguelgrinberg/flasky](https://github.com/miguelgrinberg/flasky). Because this repository is public on GitHub, acknowledging the original source is good practice when reusing open‑source code.
+
+## Credit
+All credit for the original project goes to **Miguel Grinberg** and contributors of the Flasky repository linked above.
